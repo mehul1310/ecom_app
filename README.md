@@ -107,3 +107,8 @@ php bin/phpunit
 
 ---
 
+## ✅ Running PHPStan
+```sh
+vendor/bin/phpstan analyse src
+```
+
