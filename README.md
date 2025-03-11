@@ -10,7 +10,7 @@ This is a simple e-commerce application built using Symfony 6.4. The application
 ### 1️⃣ Clone the Repository
 ```sh
 git clone https://github.com/mehul1310/ecom_app.git
-cd symfony-ecommerce
+cd ecom_app
 ```
 
 ### 2️⃣ Install Dependencies
