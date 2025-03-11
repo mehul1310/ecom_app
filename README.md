@@ -13,12 +13,7 @@ git clone https://github.com/mehul1310/ecom_app.git
 cd ecom_app
 ```
 
-### 2️⃣ Install Dependencies
-```sh
-composer install
-```
-
-### 3️⃣ Configure Environment Variables
+### 2️⃣ Configure Environment Variables
 Copy the `.env` file and configure database connection:
 ```sh
 cp .env .env.dev
@@ -26,6 +21,11 @@ cp .env .env.dev
 Update `DATABASE_URL` in `.env.dev`:
 ```
 DATABASE_URL="mysql://user:password@127.0.0.1:3306/ecom_app?serverVersion=8.0"
+```
+
+### 3️⃣ Install Dependencies
+```sh
+composer install
 ```
 
 ### 4️⃣ Setup the Database
