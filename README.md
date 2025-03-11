@@ -31,6 +31,7 @@ composer install
 ### 4️⃣ Setup the Database
 ```sh
 symfony console doctrine:database:create
+symfony console make:migration
 symfony console doctrine:migrations:migrate
 ```
 
