@@ -1,0 +1,33 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <h2>Add New Product</h2>
+
+    {{ form_start(form) }}
+    <div class="mb-3">
+        {{ form_label(form.title, 'Title', {'label_attr': {'class': 'form-label'}}) }}
+        {{ form_widget(form.title, {'attr': {'class': 'form-control'}}) }}
+    </div>
+
+    <div class="mb-3">
+        {{ form_label(form.description, 'Description', {'label_attr': {'class': 'form-label'}}) }}
+        {{ form_widget(form.description, {'attr': {'class': 'form-control'}}) }}
+    </div>
+
+    <div class="mb-3">
+        {{ form_label(form.priceExclVat, 'Price (€)', {'label_attr': {'class': 'form-label'}}) }}
+        {{ form_widget(form.priceExclVat, {'attr': {'class': 'form-control'}}) }}
+    </div>
+
+    <div class="mb-3">
+        {{ form_label(form.category, 'Category', {'label_attr': {'class': 'form-label'}}) }}
+        {{ form_widget(form.category, {'attr': {'class': 'form-select'}}) }}
+    </div>
+
+    <div class="mb-3">
+        {{ form_label(form.image, 'Product Image', {'label_attr': {'class': 'form-label'}}) }}
+        {{ form_widget(form.image, {'attr': {'class': 'form-control'}}) }}
+    </div>
+
+    {{ form_end(form) }}
+{% endblock %}

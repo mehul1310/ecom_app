@@ -1,0 +1,68 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <div class="d-flex justify-content-between align-items-center mb-3">
+        <h2>Product List</h2>
+    </div>
+
+    <form method="get" class="row g-3">
+        <div class="col-md-4">
+            <label for="category">Filter by Category:</label>
+            <select name="category" id="category" onchange="this.form.submit()" class="form-select">
+                <option value="">All Categories</option>
+                {% for category in categories %}
+                    <option value="{{ category.id }}" {{ selectedCategoryId == category.id ? 'selected' : '' }}>
+                        {{ category.name }}
+                    </option>
+                {% endfor %}
+            </select>
+        </div>
+
+        <div class="col-md-4">
+            <label for="sort">Sort by:</label>
+            <select name="sort" id="sort" onchange="this.form.submit()" class="form-select">
+                <option value="title" {{ sortBy == 'title' ? 'selected' : '' }}>Title</option>
+                <option value="priceExclVat" {{ sortBy == 'priceExclVat' ? 'selected' : '' }}>Price</option>
+            </select>
+        </div>
+    </form>
+
+    {% if products is not empty %}
+        <table class="table table-striped table-hover mt-3">
+            <thead class="table-dark">
+            <tr>
+                <th>Title</th>
+                <th>Price (€)</th>
+                <th>Category</th>
+                <th>Actions</th>
+            </tr>
+            </thead>
+            <tbody>
+            {% for product in products %}
+                <tr>
+                    <td>{{ product.title }}</td>
+                    <td>{{ product.priceExclVat }}</td>
+                    <td>{{ product.category.name }}</td>
+                    <td>
+                        <a href="{{ path('product_detail', {'id': product.id}) }}" class="btn btn-info btn-sm">View</a>
+                    </td>
+                </tr>
+            {% endfor %}
+            </tbody>
+        </table>
+
+        <nav>
+            <ul class="pagination">
+                {% for page in 1..totalPages %}
+                    <li class="page-item {{ page == currentPage ? 'active' : '' }}">
+                        <a class="page-link" href="{{ path('product_list', {'page': page}) }}">{{ page }}</a>
+                    </li>
+                {% endfor %}
+            </ul>
+        </nav>
+    {% else %}
+        <div class="alert alert-warning text-center mt-4">
+            <strong>No products found!</strong>
+        </div>
+    {% endif %}
+{% endblock %}
