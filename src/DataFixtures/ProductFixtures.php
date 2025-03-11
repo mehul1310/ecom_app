@@ -2,6 +2,7 @@
 
 namespace App\DataFixtures;
 
+use App\Entity\Category;
 use App\Entity\Product;
 use Doctrine\Bundle\FixturesBundle\Fixture;
 use Doctrine\Common\DataFixtures\DependentFixtureInterface;
@@ -21,7 +22,7 @@ class ProductFixtures extends Fixture implements DependentFixtureInterface
             $product->setPriceExclVat($faker->randomFloat(2, 10, 500));
 
             $randomCategoryIndex = array_rand(CategoryFixtures::CATEGORIES);
-            $product->setCategory($this->getReference('category_' . $randomCategoryIndex));
+            $product->setCategory($this->getReference('category_' . $randomCategoryIndex, Category::class));
 
             $product->setImage('default.jpg');
 
