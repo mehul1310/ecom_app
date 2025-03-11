@@ -21,9 +21,9 @@ composer install
 ### 3️⃣ Configure Environment Variables
 Copy the `.env` file and configure database connection:
 ```sh
-cp .env .env.local
+cp .env .env.dev
 ```
-Update `DATABASE_URL` in `.env.local`:
+Update `DATABASE_URL` in `.env.dev`:
 ```
 DATABASE_URL="mysql://user:password@127.0.0.1:3306/ecom_app?serverVersion=8.0"
 ```
